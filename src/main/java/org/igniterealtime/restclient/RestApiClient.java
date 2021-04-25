@@ -1,9 +1,9 @@
 package org.igniterealtime.restclient;
 
+import jakarta.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ws.rs.core.Response;
 
 import org.igniterealtime.restclient.RestClient.RestClientBuilder;
 import org.igniterealtime.restclient.entity.AuthenticationToken;
@@ -45,7 +45,7 @@ public class RestApiClient {
 		restClient = new RestClientBuilder(url + ":" + port).authenticationToken(authenticationToken)
 				.connectionTimeout(5000).mediaType(SupportedMediaType.XML).build();
 	}
-	
+
 	 /**
      * Instantiates a new rest api client.
      *
@@ -55,7 +55,7 @@ public class RestApiClient {
      *            the port
      * @param authenticationToken
      *            the authentication token
-     * @param mediaType 
+     * @param mediaType
      *            the media to send/accept
      */
     public RestApiClient(String url, int port, AuthenticationToken authenticationToken, SupportedMediaType mediaType) {
@@ -63,7 +63,7 @@ public class RestApiClient {
         restClient = new RestClientBuilder(url + ":" + port).authenticationToken(authenticationToken)
                 .connectionTimeout(5000).mediaType(mediaType).build();
     }
-	
+
 	/**
 	 * Instantiates a new rest api client.
 	 *
@@ -77,7 +77,7 @@ public class RestApiClient {
 		restClient = new RestClientBuilder(url + ":" + port).authenticationToken(authenticationToken)
 				.connectionTimeout(connectionTimeout).mediaType(SupportedMediaType.XML).build();
 	}
-	
+
 	 /**
      * Instantiates a new rest api client.
      *
@@ -248,7 +248,7 @@ public class RestApiClient {
 	public Response addOwner(String roomName, String jid) {
 		return restClient.post("chatrooms/" + roomName + "/owners/" + jid, null, new HashMap<String, String>());
 	}
-	
+
 	/**
 	 * Delete owner from chatroom.
 	 *
@@ -289,7 +289,7 @@ public class RestApiClient {
 		return restClient.delete("chatrooms/" + roomName + "/admins/" + jid,
 				new HashMap<String, String>());
 	}
-	
+
 	/**
 	 * Adds the member.
 	 *
@@ -316,7 +316,7 @@ public class RestApiClient {
 		return restClient.delete("chatrooms/" + roomName + "/members/" + jid,
 				new HashMap<String, String>());
 	}
-	
+
 	/**
 	 * Adds the outcast.
 	 *
@@ -329,7 +329,7 @@ public class RestApiClient {
 	public Response addOutcast(String roomName, String jid) {
 		return restClient.post("chatrooms/" + roomName + "/outcasts/" + jid, null, new HashMap<String, String>());
 	}
-	
+
 	/**
 	 * Delete outcast from chatroom.
 	 *
@@ -343,7 +343,7 @@ public class RestApiClient {
 		return restClient.delete("chatrooms/" + roomName + "/outcasts/" + jid,
 				new HashMap<String, String>());
 	}
-	
+
 	   /**
      * Adds the owner group.
      *
@@ -356,7 +356,7 @@ public class RestApiClient {
     public Response addOwnerGroup(String roomName, String groupName) {
         return restClient.post("chatrooms/" + roomName + "/owners/group/" + groupName, null, new HashMap<String, String>());
     }
-    
+
     /**
      * Delete owner group from chatroom.
      *
@@ -397,7 +397,7 @@ public class RestApiClient {
         return restClient.delete("chatrooms/" + roomName + "/admins/group/" + groupName,
                 new HashMap<String, String>());
     }
-    
+
     /**
      * Adds the group member.
      *
@@ -424,7 +424,7 @@ public class RestApiClient {
         return restClient.delete("chatrooms/" + roomName + "/members/group/" + groupName,
                 new HashMap<String, String>());
     }
-    
+
     /**
      * Adds the group outcast.
      *
@@ -437,7 +437,7 @@ public class RestApiClient {
     public Response addOutcastGroup(String roomName, String groupName) {
         return restClient.post("chatrooms/" + roomName + "/outcasts/group/" + groupName, null, new HashMap<String, String>());
     }
-    
+
     /**
      * Delete outcast group from chatroom.
      *
@@ -476,7 +476,7 @@ public class RestApiClient {
 				new HashMap<String, String>());
 		return sessionEntities;
 	}
-	
+
 	/**
 	 * Close all user sessions.
 	 *
@@ -512,7 +512,7 @@ public class RestApiClient {
 		return restClient.post("users/" + username + "/groups/", userGroupsEntity,
 				new HashMap<String, String>());
 	}
-	
+
 	/**
 	 * Adds the user to group.
 	 *
@@ -524,7 +524,7 @@ public class RestApiClient {
 		return restClient.post("users/" + username + "/groups/"+ groupName, null,
 				new HashMap<String, String>());
 	}
-	
+
 	/**
 	 * Delete user from group.
 	 *
@@ -536,7 +536,7 @@ public class RestApiClient {
 		return restClient.delete("users/" + username + "/groups/" + groupName,
 				new HashMap<String, String>());
 	}
-	
+
 
 	/**
 	 * Lockout user.
@@ -727,7 +727,7 @@ public class RestApiClient {
 	public RestClient getRestClient() {
 		return restClient;
 	}
-	
+
 	/**
 	 * Adjust URL.
 	 *
